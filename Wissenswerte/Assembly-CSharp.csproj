@@ -95,7 +95,10 @@
     <Compile Include="Assets\3rdParty\Low Poly Ultimate Pack\Standard Assets\Effects\ImageEffects\Scripts\Triangles.cs" />
     <Compile Include="Assets\3rdParty\Low Poly Ultimate Pack\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
     <Compile Include="Assets\BotController.cs" />
+    <Compile Include="Assets\CameraFollow.cs" />
+    <Compile Include="Assets\MainLogic.cs" />
     <Compile Include="Assets\MoveBotArm.cs" />
+    <Compile Include="Assets\NoGlobalRotation.cs" />
     <None Include="Assets\3rdParty\Low Poly Ultimate Pack\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
     <None Include="Assets\3rdParty\Low Poly Ultimate Pack\Standard Assets\Effects\ImageEffects\Shaders\MotionBlurClear.shader" />
     <None Include="Assets\3rdParty\Low Poly Ultimate Pack\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
@@ -133,6 +136,7 @@
     <None Include="Assets\3rdParty\Low Poly Ultimate Pack\Standard Assets\Effects\ImageEffects\Shaders\SepiaToneEffect.shader" />
     <None Include="Assets\3rdParty\Low Poly Ultimate Pack\Standard Assets\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
     <None Include="Assets\3rdParty\Low Poly Ultimate Pack\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
+    <None Include="Assets\3rdParty\Xelu\Readme.txt" />
     <None Include="Assets\3rdParty\Low Poly Ultimate Pack\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionEffect.shader" />
     <None Include="Assets\3rdParty\Low Poly Ultimate Pack\Standard Assets\Effects\ImageEffects\Shaders\VortexEffect.shader" />
     <None Include="Assets\3rdParty\Low Poly Ultimate Pack\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\VignetteShader.shader" />
@@ -166,11 +170,11 @@
     <None Include="Assets\3rdParty\Low Poly Ultimate Pack\Standard Assets\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
     <None Include="Assets\3rdParty\Low Poly Ultimate Pack\Standard Assets\Effects\ImageEffects\Shaders\CreaseApply.shader" />
     <None Include="Assets\3rdParty\Low Poly Ultimate Pack\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
-    <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>D:/Wissenswerte/Wissenswerte/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Wissenswerte/Wissenswerte/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PackageManagerUI.Editor">
+      <HintPath>D:/Wissenswerte/Wissenswerte/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Unity2018/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
