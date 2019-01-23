@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/SleepMode.unity
+    guid: a13e6a2a8747d3447b01ced5d758724a
+  - enabled: 1
     path: Assets/Scenes/Wissenswerte.unity
     guid: 065dd61e601e4854899152be4907a05d
+  - enabled: 1
+    path: Assets/Scenes/Tischdecken.unity
+    guid: d8ab6cf165e137440bce64d4a30ad201
   m_configObjects: {}
