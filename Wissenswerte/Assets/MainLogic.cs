@@ -15,10 +15,22 @@ public class MainLogic : MonoBehaviour {
     public BotController easeBotController;
     bool justScrolled;
     float lastInput;
+    public GameObject[] TDobjects;
+    public GameObject[] ARobjects;
+    public GameObject[] TRobjects;
+    public GameObject[] KCobjects;
 
     private void Start()
     {
         lastInput = Time.time;
+        foreach (GameObject go in TDobjects)
+            go.SetActive(false);
+        foreach (GameObject go in ARobjects)
+            go.SetActive(false);
+        foreach (GameObject go in TRobjects)
+            go.SetActive(false);
+        foreach (GameObject go in KCobjects)
+            go.SetActive(false);
     }
 
     // Update is called once per frame
@@ -62,6 +74,18 @@ public class MainLogic : MonoBehaviour {
 
                         displayTextDelayed(GameObject.Find("Dialog2Text0").GetComponent<Text>(), "Starte Programm \"Tischdecken\".\r\nAnzahl = 4 Personen.\r\nErforderlich: \r\n4x Besteck.\r\n");
                         Invoke("Dialog2Text1", 4.5f);
+                        foreach (GameObject go in TDobjects)
+                            go.SetActive(true);
+                    }
+                    if(selected == selectables[1]) // AUFRAEUMEN
+                    {
+                        ControllerButtonIcons[0].SetActive(true);
+                        ControllerButtonIcons[0].GetComponentInChildren<Text>().text = "Öffnen";
+
+                        displayTextDelayed(GameObject.Find("Dialog2Text0").GetComponent<Text>(), "Starte Programm \"Aufräumen\".\r\nZiel: Wohnzimmer.\r\nSuche: \r\nWohnzimmertür.\r\n");
+                        Invoke("Dialog2Text1", 4.5f);
+                        foreach (GameObject go in ARobjects)
+                            go.SetActive(true);
                     }
                     break;
             }

@@ -5,12 +5,14 @@ using UnityEngine;
 public class Arm2D : MonoBehaviour {
 
     public float speed = 1;
+    public float speedRotation = 1f;
     public float minX;
     public float minY;
     public float maxX;
     public float maxY;
     GameObject lastTouched;
     GameObject attached;
+    public bool pauseRB;
 
     // Use this for initialization
     void Start () {
@@ -39,22 +41,36 @@ public class Arm2D : MonoBehaviour {
             {
                 attached = lastTouched;
                 attached.transform.parent = transform;
+                if (pauseRB)
+                {
+                    attached.GetComponent<Rigidbody>().useGravity = false;
+                    attached.GetComponent<Rigidbody>().isKinematic = true;
+                    attached.GetComponent<Collider>().enabled = false;
+                }
             }
             else
             {
                 GameObject.Find("TischdeckenLogic").GetComponent<TischdeckenLogic>().place(attached);
+                if (pauseRB)
+                {
+                    attached.GetComponent<Rigidbody>().useGravity = true;
+                    attached.GetComponent<Rigidbody>().isKinematic = false;
+                    attached.GetComponent<Collider>().enabled = true;
+                }
                 attached.transform.parent = null;
                 attached = null;
             }
         }
         //float x = (transform.localRotation.eulerAngles.x + 360) % 360;
         //transform.localRotation = Quaternion.Euler(new Vector3(x + Input.GetAxis("HorizontalRIGHT"), 90, 90));
-        transform.Rotate(Vector3.up, Input.GetAxis("HorizontalRIGHT"));
+        transform.Rotate(Vector3.up, Input.GetAxis("HorizontalRIGHT") * speedRotation);
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 90f, 90f);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        lastTouched = other.gameObject;
+        if(other.tag != "NonGrabbable")
+            lastTouched = other.gameObject;
     }
 
     private void OnTriggerExit(Collider other)

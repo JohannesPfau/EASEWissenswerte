@@ -13,6 +13,7 @@ public class TischdeckenLogic : MonoBehaviour {
     public List<GameObject> MovableObjects;
     public GameObject fertig_B;
     public GameObject fertig_Dialog;
+    public string category = "TD";
 
     private void Start()
     {
@@ -48,15 +49,12 @@ public class TischdeckenLogic : MonoBehaviour {
         {
             GameObject.Find("Canvas").SetActive(false);
             GameObject.Find("2DArm").SetActive(false);
-            string str = "Screenshots/TD/TD_" + System.DateTime.Now.Month + "_" + System.DateTime.Now.Day + "_"+System.DateTime.Now.Hour+"."+ System.DateTime.Now.Minute + "."+ System.DateTime.Now.Second + ".png";
+            string str = "Screenshots/"+ category+"/"+ category+"_" + System.DateTime.Now.Month + "_" + System.DateTime.Now.Day + "_"+System.DateTime.Now.Hour+"."+ System.DateTime.Now.Minute + "."+ System.DateTime.Now.Second + ".png";
             ScreenCapture.CaptureScreenshot(str);
             PlayerPrefs.SetString("Learned", str);
-            PlayerPrefs.SetString("LearnedType", "TD");
-            SceneManager.LoadScene("SleepMode"); // change in LearnScene
+            PlayerPrefs.SetString("LearnedType", category);
+            SceneManager.LoadScene("SleepMode");
         }
-
-        //if(Input.GetKeyDown(KeyCode.P))
-        //    ScreenCapture.CaptureScreenshot("TD.png");
     }
 
     public void place(GameObject movableObject)

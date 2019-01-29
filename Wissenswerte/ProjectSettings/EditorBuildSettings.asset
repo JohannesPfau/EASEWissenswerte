@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tischdecken.unity
     guid: d8ab6cf165e137440bce64d4a30ad201
+  - enabled: 1
+    path: Assets/Scenes/Aufraeumen.unity
+    guid: 740fce3a8264eee47815c674f1d25b7b
   m_configObjects: {}

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Tischdecken.unity
+- path: Assets/Scenes/Wissenswerte.unity
   isLoaded: 1
   isActive: 1
