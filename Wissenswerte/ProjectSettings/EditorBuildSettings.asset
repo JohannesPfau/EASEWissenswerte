@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Aufraeumen.unity
     guid: 740fce3a8264eee47815c674f1d25b7b
+  - enabled: 1
+    path: Assets/Scenes/Kochen.unity
+    guid: 0cbda275f5b93914088671f2b1829a91
+  - enabled: 1
+    path: Assets/Scenes/Trinken.unity
+    guid: 3133f435107ddb04bb4ed65a899d9868
   m_configObjects: {}

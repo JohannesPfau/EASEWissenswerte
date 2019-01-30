@@ -87,6 +87,24 @@ public class MainLogic : MonoBehaviour {
                         foreach (GameObject go in ARobjects)
                             go.SetActive(true);
                     }
+
+                    if (selected == selectables[2]) // KOCHEN
+                    {
+                        ControllerButtonIcons[0].SetActive(true);
+                        ControllerButtonIcons[0].GetComponentInChildren<Text>().text = "Öffnen";
+                        Invoke("goToKochen", 9f);
+                        
+                        displayTextDelayed(GameObject.Find("Dialog2Text0").GetComponent<Text>(), "Starte Programm \"Kochen\".\r\nEvaluiere 330.518.963 Rezepte.\r\nOptimiere nach 42 Kriterien..........\r\nOK!");
+                    }
+
+                    if (selected == selectables[3]) // TRINKEN
+                    {
+                        ControllerButtonIcons[0].SetActive(true);
+                        ControllerButtonIcons[0].GetComponentInChildren<Text>().text = "Öffnen";
+                        Invoke("goToTrinken", 7.25f);
+
+                        displayTextDelayed(GameObject.Find("Dialog2Text0").GetComponent<Text>(), "Starte Programm \"Trinken\".\r\nZielgröße: 4 Personen.\r\nSuche: Gläser..........\r\nOK!");
+                    }
                     break;
             }
         }
@@ -116,6 +134,15 @@ public class MainLogic : MonoBehaviour {
         }
         if (Input.GetAxis("VerticalDPAD") == 0)
             justScrolled = false;
+    }
+
+    void goToKochen()
+    {
+        SceneManager.LoadScene("Kochen");
+    }
+    void goToTrinken()
+    {
+        SceneManager.LoadScene("Trinken");
     }
 
     void updateSelection(int index)

@@ -14,10 +14,18 @@ public class TischdeckenLogic : MonoBehaviour {
     public GameObject fertig_B;
     public GameObject fertig_Dialog;
     public string category = "TD";
+    public bool restartPossible;
 
     private void Start()
     {
         lastInput = Time.time;
+        if(PlayerPrefs.GetInt("IsRestart") == 1)
+        {
+            Debug.Log("is restart.");
+            PlayerPrefs.SetInt("IsRestart", 0);
+            GameObject.Find("Dialog0").SetActive(false);
+            progress++;
+        }
     }
 
     // Update is called once per frame
@@ -54,6 +62,12 @@ public class TischdeckenLogic : MonoBehaviour {
             PlayerPrefs.SetString("Learned", str);
             PlayerPrefs.SetString("LearnedType", category);
             SceneManager.LoadScene("SleepMode");
+        }
+
+        if(restartPossible && (Input.GetKeyDown(KeyCode.JoystickButton3) || Input.GetKeyDown(KeyCode.R)))
+        {
+            PlayerPrefs.SetInt("IsRestart", 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 

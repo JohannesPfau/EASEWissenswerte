@@ -10,9 +10,11 @@ public class Arm2D : MonoBehaviour {
     public float minY;
     public float maxX;
     public float maxY;
+    public float minXforSlicing = 0;
     GameObject lastTouched;
     GameObject attached;
     public bool pauseRB;
+    public float overrideSize = -1f;
 
     // Use this for initialization
     void Start () {
@@ -58,6 +60,19 @@ public class Arm2D : MonoBehaviour {
                     attached.GetComponent<Collider>().enabled = true;
                 }
                 attached.transform.parent = null;
+
+                if (overrideSize != -1)
+                    attached.transform.localScale = new Vector3(overrideSize, overrideSize, overrideSize);
+
+                if (attached.GetComponent<Sliceable>() && transform.position.x >= minXforSlicing)
+                {
+                    for(int i = 0; i < attached.GetComponent<Sliceable>().nrOfParts; i++)
+                    {
+                        Instantiate(attached.GetComponent<Sliceable>().slicePrefab, attached.transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f),0), Quaternion.Euler(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f)));
+                    }
+                    Destroy(attached);
+                }
+
                 attached = null;
             }
         }

@@ -399,6 +399,7 @@
     <Compile Include="Assets\CameraFollow.cs" />
     <Compile Include="Assets\MainLogic.cs" />
     <Compile Include="Assets\MoveBotArm.cs" />
+    <Compile Include="Assets\MovePhysically.cs" />
     <Compile Include="Assets\NoGlobalRotation.cs" />
     <Compile Include="Assets\Obi\Rendering\ObiBaseFluidRenderer.cs" />
     <Compile Include="Assets\Obi\Rendering\ObiDistanceFieldRenderer.cs" />
@@ -501,6 +502,7 @@
     <Compile Include="Assets\Obi\Scripts\Utils\ObiProfiler.cs" />
     <Compile Include="Assets\Obi\Scripts\Utils\ObiUtils.cs" />
     <Compile Include="Assets\SleepLogic.cs" />
+    <Compile Include="Assets\Sliceable.cs" />
     <Compile Include="Assets\TableArea.cs" />
     <Compile Include="Assets\TischdeckenLogic.cs" />
     <None Include="Assets\Obi\Resources\ObiMaterials\FluidColorsOpaque.shader" />
