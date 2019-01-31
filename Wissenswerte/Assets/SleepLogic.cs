@@ -34,6 +34,7 @@ public class SleepLogic : MonoBehaviour {
 #if UNITY_EDITOR
             PostLearned.GetComponent<RawImage>().texture = LoadPNG(PlayerPrefs.GetString("Learned"));
 #else
+            Debug.LogError("Reading: " + "Builds_Data/" + PlayerPrefs.GetString("Learned"));
             PostLearned.GetComponent<RawImage>().texture = LoadPNG("Builds_Data/" + PlayerPrefs.GetString("Learned"));
 #endif
             PreLearned.GetComponent<Image>().sprite = Resources.Load<Sprite>(PlayerPrefs.GetString("LearnedType"));
@@ -51,6 +52,9 @@ public class SleepLogic : MonoBehaviour {
             GameObject.Find("Main Camera").GetComponent<Animator>().SetTrigger("Proceed");
             Invoke("changeScene",1);
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
 	}
 
     void changeScene()

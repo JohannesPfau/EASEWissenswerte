@@ -1845,10 +1845,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.4
-  minX: -20.19
-  minY: -14.35
-  maxX: 29.86
-  maxY: 12.39
+  speedRotation: 1
+  minX: -24.73
+  minY: -12.68
+  maxX: 25.38237
+  maxY: 14.07
+  minXforSlicing: 0
+  pauseRB: 0
+  overrideSize: -1
 --- !u!4 &1097189249
 Transform:
   m_ObjectHideFlags: 0
@@ -3674,6 +3678,8 @@ MonoBehaviour:
   - {fileID: 1229051475}
   fertig_B: {fileID: 2078581528}
   fertig_Dialog: {fileID: 384725998}
+  category: TD
+  restartPossible: 0
 --- !u!1 &1822229885 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 359608942e526e041befb96c1617a9fb, type: 2}

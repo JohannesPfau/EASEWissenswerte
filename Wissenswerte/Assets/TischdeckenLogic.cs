@@ -33,11 +33,11 @@ public class TischdeckenLogic : MonoBehaviour {
     {
         if (Input.anyKey || Input.GetAxis("VerticalDPAD") != 0 || Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0 || Input.GetAxis("HorizontalRIGHT") != 0 || Input.GetAxis("VerticalRIGHT") != 0)
             lastInput = Time.time;
-        if (Time.time - lastInput > 60)
-            SceneManager.LoadScene("SleepMode");
-
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton6))
-            SceneManager.LoadScene("SleepMode");
+        if (Time.time - lastInput > 60 || Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton6))
+        {
+            Instantiate(Resources.Load<GameObject>("FadeOutCanvas"));
+            Invoke("goToSleep", 1.5f);
+        }
 
         if (Input.GetKeyDown(KeyCode.JoystickButton0) || Input.GetKeyDown(KeyCode.Return)) // "A" button
         {
@@ -61,7 +61,9 @@ public class TischdeckenLogic : MonoBehaviour {
             ScreenCapture.CaptureScreenshot(str);
             PlayerPrefs.SetString("Learned", str);
             PlayerPrefs.SetString("LearnedType", category);
-            SceneManager.LoadScene("SleepMode");
+
+            Instantiate(Resources.Load<GameObject>("FadeOutCanvas"));
+            Invoke("goToSleep", 1.5f);
         }
 
         if(restartPossible && (Input.GetKeyDown(KeyCode.JoystickButton3) || Input.GetKeyDown(KeyCode.R)))
@@ -69,6 +71,11 @@ public class TischdeckenLogic : MonoBehaviour {
             PlayerPrefs.SetInt("IsRestart", 1);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+
+    public void goToSleep()
+    {
+        SceneManager.LoadScene("SleepMode");
     }
 
     public void place(GameObject movableObject)

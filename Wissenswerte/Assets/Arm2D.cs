@@ -79,7 +79,7 @@ public class Arm2D : MonoBehaviour {
         //float x = (transform.localRotation.eulerAngles.x + 360) % 360;
         //transform.localRotation = Quaternion.Euler(new Vector3(x + Input.GetAxis("HorizontalRIGHT"), 90, 90));
         transform.Rotate(Vector3.up, Input.GetAxis("HorizontalRIGHT") * speedRotation);
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 90f, 90f);
+        //transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 90f, 90f);
     }
 
     private void OnTriggerStay(Collider other)
